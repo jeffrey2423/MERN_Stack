@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 //ROUTES
-//especificamos las urls que la aplicacion de react 
+//especificamos las urls que la aplicacion de react
 //podra acceder
 app.use('/api/users', require('./routes/users') );
 app.use('/api/notes', require('./routes/notes'));

@@ -2,18 +2,20 @@ const { Router } = require('express');
 const router = Router();
 
 router.route('/')
-//obtener datos
+    //obtener datos
     .get((req, res) => res.send('Users routes'))
-    //guardar 
-    .post()
+//     //guardar
+//     .post()
 
 
-router.route('/:id')
-    //actualizar un dato
-    .put()
-    //borrar un dato
-    .delete()
-    //actualizar un un dato en especifico
-    .patch()
+// router.route('/:id')
+//     //obtener datos
+//     .get()
+//     //actualizar un dato
+//     .put()
+//     //borrar un dato
+//     .delete()
+//     //actualizar un un dato en especifico
+//     .patch()
 
 module.exports = router;
