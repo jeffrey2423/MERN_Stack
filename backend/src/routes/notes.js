@@ -1,21 +1,21 @@
 const { Router } = require('express');
 const router = Router();
 
+const notesController = require('../controllers/notes.controller');
+
 router.route('/')
     //obtener datos
-    .get((req, res) => res.json({response: 'GET MESSAGE'}))
-//     //guardar
-    .post((req, res) => res.send({response: 'POST MESSAGE'}))
+    .get(notesController.getNotes)
+    //     //guardar
+    .post(notesController.createNotes)
 
-// router.route('/:id')
-//     //obtener datos
-//     .get()
-//     //actualizar un dato
-//     .put()
-//     //borrar un dato
-//     .delete()
-//     //actualizar un un dato en especifico
-//    .patch()
+router.route('/:id')
+    //obtener datos
+    .get(notesController.getNote)
+    //actualizar un dato
+    .put(notesController.updateNote)
+    //borrar un dato
+    .delete(notesController.deleteNote)
 
 
 module.exports = router;
