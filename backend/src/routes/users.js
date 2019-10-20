@@ -1,21 +1,17 @@
 const { Router } = require('express');
 const router = Router();
 
+const userController = require('../controllers/users.controller');
+
 router.route('/')
     //obtener datos
-    .get((req, res) => res.send('Users routes'))
-//     //guardar
-//     .post()
+    .get(userController.getUsers)
+    //guardar
+    .post(userController.createUser)
 
+router.route('/:id')
+    //borrar un dato
+    .delete(userController.deleteUser)
 
-// router.route('/:id')
-//     //obtener datos
-//     .get()
-//     //actualizar un dato
-//     .put()
-//     //borrar un dato
-//     .delete()
-//     //actualizar un un dato en especifico
-//     .patch()
 
 module.exports = router;
