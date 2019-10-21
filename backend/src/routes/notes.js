@@ -10,12 +10,12 @@ router.route('/')
     .post(notesController.createNotes)
 
 router.route('/:id')
-    //obtener datos
-    .get(notesController.getNote)
     //actualizar un dato
     .put(notesController.updateNote)
     //borrar un dato
     .delete(notesController.deleteNote)
+    //obtener datos
+    .get(notesController.getNote)
 
 
 module.exports = router;
