@@ -14,11 +14,14 @@ import NotesList from './components/NotesList';
 function App() {
   return (
     <Router>
-      <Navigation/>
-      <Route path="/" exact component={NotesList}/>
-      <Route path="/edit/:id" exact component={CreateNote}/>
-      <Route path="/create" exact component={CreateNote}/>
-      <Route path="/user" exact component={CreateUser}/>
+      <Navigation />
+      <div className="container p-4">
+        <Route path="/" exact component={NotesList} />
+        <Route path="/edit/:id" exact component={CreateNote} />
+        <Route path="/create" exact component={CreateNote} />
+        <Route path="/user" exact component={CreateUser} />
+      </div>
+
     </Router>
   );
 }
