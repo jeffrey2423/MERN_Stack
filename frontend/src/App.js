@@ -5,6 +5,7 @@ import 'jquery/dist/jquery.min.js';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
 
+
 import Navigation from './components/Navigation';
 import CreateNote from './components/CreateNote';
 import CreateUser from './components/CreateUser';

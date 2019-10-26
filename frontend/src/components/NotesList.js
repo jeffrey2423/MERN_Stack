@@ -17,7 +17,7 @@ export class NotesList extends Component {
     }
 
     getNotes = async () => {
-        const res = await axios.get('http://localhost:4000/api/notes');
+        const res = await axios.get(process.env.REACT_APP_API_URL_NOTES);
         this.setState({ notes: res.data });
     }
 

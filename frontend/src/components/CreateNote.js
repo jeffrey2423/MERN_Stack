@@ -21,13 +21,13 @@ export class CreateNote extends Component {
 
     async componentDidMount() {
 
-        const res = await axios.get('http://localhost:4000/api/users');
+        const res = await axios.get(process.env.REACT_APP_API_URL_USERS);
         this.setState({
             users: res.data.map(user => user.username),
             userSelected: res.data[0].username
         });
         if (this.props.match.params.id) {
-            const res = await axios.get('http://localhost:4000/api/notes/' + this.props.match.params.id);
+            const res = await axios.get(process.env.REACT_APP_API_URL_NOTES+'/' + this.props.match.params.id);
             console.log(res.data)
             this.setState({
                 title: res.data.title,
@@ -51,7 +51,7 @@ export class CreateNote extends Component {
         }
         console.log(this.state.date)
         if (this.state.editing) {
-            const response = await axios.put('http://localhost:4000/api/notes/' + this.state.id, newNote);
+            const response = await axios.put(process.env.REACT_APP_API_URL_NOTES+'/' + this.state.id, newNote);
 
             if (response.data['response'] === 'note updated') {
                 alertify.success('Nota actualizada con exito');
@@ -60,7 +60,7 @@ export class CreateNote extends Component {
                 alertify.error('Ocurrio un error intenta de nuevo');
             }
         } else {
-            const response = await axios.post('http://localhost:4000/api/notes', newNote);
+            const response = await axios.post(process.env.REACT_APP_API_URL_NOTES, newNote);
 
             if (response.data['response'] === 'Note saved') {
                 alertify.success('Nota creada con exito');

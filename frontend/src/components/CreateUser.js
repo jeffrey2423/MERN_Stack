@@ -16,7 +16,7 @@ export class CreateUser extends Component {
     }
 
     getUsers = async () => {
-        const res = await axios.get('http://localhost:4000/api/users');
+        const res = await axios.get(process.env.REACT_APP_API_URL_USERS);
         this.setState({ users: res.data });
     }
 
@@ -27,7 +27,7 @@ export class CreateUser extends Component {
     }
     onSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:4000/api/users', {
+        const response = await axios.post(process.env.REACT_APP_API_URL_USERS, {
             username: this.state.username
         });
 
@@ -46,7 +46,7 @@ export class CreateUser extends Component {
     deleteUser = async (id) => {
         alertify.confirm('Confirmacion', '¿Desea borrar este usuario?',
             async () => {
-                await axios.delete('http://localhost:4000/api/users/' + id);
+                await axios.delete(process.env.REACT_APP_API_URL_USERS+'/' + id);
                 this.getUsers();
                 alertify.success('Usuario eliminado con exito');
             },
