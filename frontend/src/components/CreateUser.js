@@ -43,10 +43,16 @@ export class CreateUser extends Component {
 
     }
 
-    deleteUser = async(id) => {
-        await axios.delete('http://localhost:4000/api/users/'+id);
-        this.getUsers();
-        alertify.success('Usuario eliminado con exito');
+    deleteUser = async (id) => {
+        alertify.confirm('Confirmacion', '¿Desea borrar este usuario?',
+            async () => {
+                await axios.delete('http://localhost:4000/api/users/' + id);
+                this.getUsers();
+                alertify.success('Usuario eliminado con exito');
+            },
+            () => { alertify.error('Cancel') }
+        );
+
     }
     render() {
         return (
